@@ -7,12 +7,12 @@ export function App() {
   return (
     <div className="App">
       <PageTitle title="This is App Component" />
-      <OnOffToggler isOn />
+      <OnOffToggler isOn={false} />
       <Accordion title="Tits" isCollapsed />
       <Rating value={5} />
 
       <PageTitle title="Users" />
-      <OnOffToggler isOn={false} />
+      <OnOffToggler isOn />
       <Accordion title="Pussies" isCollapsed={false} />
       <Rating value={3} />
     </div>
