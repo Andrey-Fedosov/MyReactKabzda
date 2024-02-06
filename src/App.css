@@ -2,3 +2,24 @@
   margin: 20px;
   text-align: left;
 }
+
+.toggler {
+  display: flex;
+  text-align: center;
+}
+
+.btn {
+  margin: 5px;
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+  border-radius: 10%;
+}
+
+.indicator {
+  margin-top: 5px;
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+}

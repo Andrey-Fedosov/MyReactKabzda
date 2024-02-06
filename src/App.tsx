@@ -1,17 +1,20 @@
 import "./App.css";
 import { Rating } from "./components/Rating";
 import { Accordion } from "./components/Accordion";
+import { OnOffToggler } from "./OnOff";
 
 export function App() {
   return (
     <div className="App">
       <PageTitle title="This is App Component" />
-      <Rating value={4} />
-      <Accordion />
-      <Rating value={0} />
+      <OnOffToggler isOn />
+      <Accordion title="Tits" isCollapsed />
+      <Rating value={5} />
+
       <PageTitle title="Users" />
-      <Accordion />
-      <Rating value={2} />
+      <OnOffToggler isOn={false} />
+      <Accordion title="Pussies" isCollapsed={false} />
+      <Rating value={3} />
     </div>
   );
 }
