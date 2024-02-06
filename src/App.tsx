@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Rating } from "./components/Rating";
+import { Accordion } from "./components/Accordion";
 
-function App() {
+export function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PageTitle title="This is App Component" />
+      <Rating value={4} />
+      <Accordion />
+      <Rating value={0} />
+      <PageTitle title="Users" />
+      <Accordion />
+      <Rating value={2} />
     </div>
   );
 }
 
-export default App;
+export function PageTitle(props: { title: string }) {
+  console.log("Title has rendering");
+  return (
+    <>
+      <h1>{props.title}</h1>
+    </>
+  );
+}
