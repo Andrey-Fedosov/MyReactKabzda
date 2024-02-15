@@ -1,20 +1,46 @@
 import "./App.css";
-import { Rating } from "./components/Rating";
+import { Rating, RatingPropsType, RatingValueType } from "./components/Rating";
 import { Accordion } from "./components/Accordion";
 import { OnOffToggler } from "./OnOff";
+import { SelfControlledAccordion } from "./components/SelfControlledAccordion";
+import { SelfControlledRating } from "./components/SelfControlledRating";
+import { useState } from "react";
 
 export function App() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [rating, setRating] = useState<RatingValueType>(0);
+
+  const accordionHandler = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+  const changeRating = (value: RatingValueType) => {
+    setRating(value);
+  };
   return (
     <div className="App">
       <PageTitle title="This is App Component" />
-      <OnOffToggler isOn={false} />
-      <Accordion title="Tits" isCollapsed />
-      <Rating value={5} />
+      <OnOffToggler />
+      <Accordion
+        title="Tits"
+        isCollapsed={isCollapsed}
+        accordionHandler={accordionHandler}
+      />
+      <Rating value={rating} changeRating={changeRating} />
 
       <PageTitle title="Users" />
-      <OnOffToggler isOn />
-      <Accordion title="Pussies" isCollapsed={false} />
-      <Rating value={3} />
+      <OnOffToggler />
+      <OnOffToggler />
+      <OnOffToggler />
+      <Accordion
+        title="Pussies"
+        isCollapsed={isCollapsed}
+        accordionHandler={accordionHandler}
+      />
+      <Rating value={rating} changeRating={changeRating} />
+
+      <PageTitle title="Buts" />
+      <SelfControlledAccordion title="Big Buts" />
+      <SelfControlledRating />
     </div>
   );
 }
